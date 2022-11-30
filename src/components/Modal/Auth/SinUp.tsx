@@ -109,10 +109,20 @@ const SignUp: React.FC = () => {
       {error ||
         (userError && (
           <Text textAlign='center' color='red' fontSize='10pt'>
-            {error || FIREBASE_ERRORS[userError.message as keyof typeof FIREBASE_ERRORS]}
+            {error ||
+              FIREBASE_ERRORS[
+                userError.message as keyof typeof FIREBASE_ERRORS
+              ]}
           </Text>
         ))}
-      <Button width='100%' height='36px' type='submit' mt='2' mb='2' isLoading={loading}>
+      <Button
+        width='100%'
+        height='36px'
+        type='submit'
+        mt='2'
+        mb='2'
+        isLoading={loading}
+      >
         Sign Up
       </Button>
       <Flex fontSize='9pt' justifyContent='center'>
