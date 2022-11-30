@@ -3,10 +3,11 @@ import React from 'react'
 import AuthButtons from './AuthButtons'
 import AuthModal from '../../Modal/Auth/AuthModal'
 import { auth } from '../../../firebase/clientApp'
-import { signOut } from 'firebase/auth'
+import { signOut, User } from 'firebase/auth'
+import Icons from './Icons'
 
 type RIghtContentProps = {
-  user: any
+  user?: User | null
 }
 
 const RightContent: React.FC<RIghtContentProps> = ({ user }) => {
@@ -14,7 +15,11 @@ const RightContent: React.FC<RIghtContentProps> = ({ user }) => {
     <>
       <AuthModal />
       <Flex justify='content' align='center'>
-        {user ? <Button onClick={() => signOut(auth)}>Logout</Button> : <AuthButtons />}
+        {user ? (
+          <Icons />
+        ) : (
+          <AuthButtons />
+        )}
       </Flex>
     </>
   )
